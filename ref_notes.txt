@@ -16,6 +16,10 @@
 #find JMP
 !mona jmp -r esp -cpb "BADCHARS"
 
+#endian converter for safety haha
+http://www.save-editor.com/tools/wse_hex.html
+
+
 !mona modules
 !mona find -s "\xff\xe4" -m "some.dll"
 
